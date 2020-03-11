@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            School data entry
+        </title>
+        
+    </head>
+    <body>
+        <h2>Enter data below</h2>
+        <form method = "post">
+            <label>Student ID</label>
+            <input type = "text" id = "sid" required> <br>
+            <label>Roll no</label>
+            <input type = "text" id = "rno" required><br>
+            <label>Name</label>
+            <input type = "text" id = "name" required><br>
+            <label>Attendance</label>
+            <input type = "number" id="atten" required><br>
+            <label>Percentage</label>
+            <input type = "number" id = "perc" required><br>
+            <label>Gender</label><br>
+            <input type="radio" id="male" name="gender" value="male" id = "male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" id = "fmale" value="female">
+            <label for="female">Female</label><br>
+            <button type = "submit" id = "btn">SUBMIT</input>
+        </form>
+            <script >
+                const electron = require('electron');
+                const {ipcRenderer} = electron;  
+                var btnclick = document.getElementById('btn');
+                if(btnclick)
+                btnclick.addEventListener('click', fnc);
+                function fnc(e){
+                    e.preventDefault();
+                    console.log(123);
+                    var mysql = require('mysql');
+                    var con = mysql.createConnection({
+                        host: "localhost",
+                        user: "root",
+                        password: "shinratensei",
+                        database: 'db'
+                    });
+                    var sid = document.getElementById('sid').value;
+                    var rno = document.getElementById('rno').value;
+                    var nam = document.getElementById('name').value;
+                    var atten = document.getElementById('atten').value;
+                    var perc = document.getElementById('perc').value;
+                    var x = document.getElementById("male").checked;
+                    if (x) male = 'male';
+                    else male = 'female'
+                    con.connect(function(err) {
+                    if (err) throw err;
+                    console.log("Connected!");
+                    var sql = "INSERT INTO student VALUES(" +sid +"," +rno+",'"+nam+"',"+atten+","+perc+",'"+male+"')";
+                            con.query(sql, function (err, result) {
+                                if (err) throw err;
+                                console.log("1 record inserted");
+                            });
+                    });
+                }
+            </script>   
+    </body>
+</html>
