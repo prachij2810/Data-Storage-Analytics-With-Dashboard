@@ -1,0 +1,14 @@
+{
+  "name": "school",
+  "version": "1.0.0",
+  "description": "Simple System Monitor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Ritika Mishra",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^8.0.3"
+  }
+}
