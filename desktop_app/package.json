@@ -1,0 +1,23 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "school desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Vaishali",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^8.0.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prachij2810/School_Management_System.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prachij2810/School_Management_System/issues"
+  },
+  "homepage": "https://github.com/prachij2810/School_Management_System#readme"
+}
