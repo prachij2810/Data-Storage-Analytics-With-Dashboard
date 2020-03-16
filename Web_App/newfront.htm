@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    background-color: #1abc9c;
+   }
+   ul{
+    list-style-type: none;
+    margin:21px -8px;
+    padding:-10px -8px;
+    overflow: hidden;
+    background-color: #333;
+    top:0;
+   }
+   .btn{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+   }
+   .success {
+    border-color: #4CAF50;
+    color: green;
+  }
+  
+  .success:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+   div{
+    top:0;
+    margin:-21px -8px;
+    display:block;  
+   }
+   .div1{
+      max-width:auto;
+      height: 522px;
+      background-color: #708090;
+      text-align: center;
+      padding-top: 40px;
+   }
+   li{
+    float:left;
+   }
+   li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    overflow: hidden;
+   }
+   li a:hover {
+    background-color: #111;
+   }
+</style>  
+<title>Front</title>
+</head>
+<div style = "background-color:lightblue"><h1 style="text-align:center">WELCOME</h1>
+</div>
+<body> 
+<form action="submit" method="POST">   
+<div class="nav">
+<ul>
+  <li><a class="active" href="#home" >Home</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+</div>
+<div class="div1"> 
+ District: <select id="district" name="d">
+ <option value="Gaya" name="g">Gaya</option>
+ <option value="Bihar" name="g">Muzzaffarpur</option>
+ <option value="Patna" name="g">Patna</option>
+ </select>
+ <br><br><br>
+ TYPE: <br>  <br>    &nbsp; &nbsp; &nbsp; <input type="radio" id="primary" value="primary" name="p">primary<br><br>
+		         &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;<input type="radio" id="secondary" value="secondary" name="p">secondary<br><br>
+		            &nbsp; <input type="radio" id="high" value="high" name="p">high
+         &nbsp;	<br><br><br><input type="submit" id="submit" value="submit" name="search">
+         &nbsp;&nbsp;<a href="types"> Show Types</a> <br>
+         &nbsp;&nbsp;<input type="text" id="fname" name="fname" ><br>      
+</div>
+<div></div>  
+</form>
+<script src="/newserver.js"></script>
+</body>
+</html>
