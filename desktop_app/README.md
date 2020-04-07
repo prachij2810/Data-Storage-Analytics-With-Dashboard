@@ -8,7 +8,7 @@ https://nodejs.org/en/download/
 npm install -g electron
 
 ## Clone the Code using the following command
-git clone url
+git clone https://github.com/electron/electron.git
 
 ## Go into the project folder and run the application using the following commands
 
