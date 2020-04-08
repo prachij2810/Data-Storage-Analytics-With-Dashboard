@@ -1,92 +1,133 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-  body {
-    background-color: #1abc9c;
-   }
-   ul{
-    list-style-type: none;
-    margin:21px -8px;
-    padding:-10px -8px;
-    overflow: hidden;
-    background-color: #333;
-    top:0;
-   }
-   .btn{
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-   }
-   .success {
-    border-color: #4CAF50;
-    color: green;
-  }
-  
-  .success:hover {
-    background-color: #4CAF50;
-    color: white;
-  }
-   div{
-    top:0;
-    margin:-21px -8px;
-    display:block;  
-   }
-   .div1{
-      max-width:auto;
-      height: 522px;
-      background-color: #708090;
-      text-align: center;
-      padding-top: 40px;
-   }
-   li{
-    float:left;
-   }
-   li a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    overflow: hidden;
-   }
-   li a:hover {
-    background-color: #111;
-   }
-</style>  
-<title>Front</title>
-</head>
-<div style = "background-color:lightblue"><h1 style="text-align:center">WELCOME</h1>
-</div>
-<body> 
-<form action="submit" method="POST">   
-<div class="nav">
-<ul>
-  <li><a class="active" href="#home" >Home</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
-</div>
-<div class="div1"> 
- District: <select id="district" name="d">
- <option value="Gaya" name="g">Gaya</option>
- <option value="Bihar" name="g">Muzzaffarpur</option>
- <option value="Patna" name="g">Patna</option>
- </select>
- <br><br><br>
- TYPE: <br>  <br>    &nbsp; &nbsp; &nbsp; <input type="radio" id="primary" value="primary" name="p">primary<br><br>
-		         &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;<input type="radio" id="secondary" value="secondary" name="p">secondary<br><br>
-		            &nbsp; <input type="radio" id="high" value="high" name="p">high
-         &nbsp;	<br><br><br><input type="submit" id="submit" value="submit" name="search">
-         &nbsp;&nbsp;<a href="types"> Show Types</a> <br>
-         &nbsp;&nbsp;<input type="text" id="fname" name="fname" ><br>      
-</div>
-<div></div>  
-</form>
-<script src="/newserver.js"></script>
-</body>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: url(school1.png);
+        background-size: cover;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 21px -8px;
+        padding: -10px -8px;
+        overflow: hidden;
+        background-color: #333;
+        top: 0;
+      }
+
+      .div1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        padding: 40px;
+        background: lightblue;
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+      }
+
+      select {
+        padding: 6px;
+        font-family: sans-serif;
+        background: white;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+
+      .div1 input[type="text"] {
+        padding: 10px 0;
+        width: 100%;
+        font-size: 16px;
+        color: black;
+        margin-bottom: 30px;
+        border: 1px solid #fff;
+        outline: none;
+      }
+
+      .div1 input[type="submit"] {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #03a9f4;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      div {
+        top: 0;
+        margin: -21px -8px;
+        display: block;
+      }
+
+      li {
+        float: left;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        overflow: hidden;
+      }
+      li a:hover {
+        background-color: lightblue;
+      }
+    </style>
+    <title>Home</title>
+  </head>
+  <div style="background-color: lightblue;">
+    <h1 style="text-align: center;">WELCOME</h1>
+  </div>
+  <body>
+    <form action="submit" method="POST">
+      <div class="nav">
+        <ul>
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div class="div1">
+        District:
+        <select id="district" name="d">
+          <option value="Gaya" name="g">Gaya</option>
+          <option value="Bihar" name="g">Muzzaffarpur</option>
+          <option value="Patna" name="g">Patna</option>
+        </select>
+        <br /><br />
+        School Type: <br /><br />
+
+        &nbsp; &nbsp; &nbsp;
+        <input
+          type="radio"
+          id="primary"
+          value="primary"
+          name="p"
+        />primary<br /><br />
+        &nbsp; &nbsp; &nbsp;
+        <input
+          type="radio"
+          id="secondary"
+          value="secondary"
+          name="p"
+        />secondary<br /><br />
+        &nbsp; &nbsp; &nbsp;
+        <input type="radio" id="high" value="high" name="p" />high &nbsp;
+        <br /><br /><br />
+        <input type="text" id="fname" name="fname" /><br />
+        <input type="submit" id="submit" value="submit" name="search" />
+        &nbsp;&nbsp;
+      </div>
+    </form>
+    <script src="/newserver.js"></script>
+  </body>
 </html>
