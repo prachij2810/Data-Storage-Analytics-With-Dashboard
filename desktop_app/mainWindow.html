@@ -4,10 +4,55 @@
         <title>
             School data entry
         </title>
-        
+        <style>
+            body {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 600px;
+                padding: 40px;
+                box-sizing: border-box;
+                box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
+                font-family: sans-serif;
+                color: black;
+            }
+
+            h2{
+                margin: 0 0 30px;
+                padding: 0;
+                color: black;
+                text-align: center;
+             }
+
+            input {
+                padding: 10px 0;
+                font-size: 16px;
+                color: black;
+                margin-bottom: 10px;
+                border: 1px solid;
+                border-radius: 2px;
+                outline: none;
+            } 
+
+            button[type="submit"] {
+                margin-top: 10px;
+                background: transparent;
+                border: none;
+                outline: none;
+                color: #fff;
+                background: #03a9f4;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+
+        </style>
     </head>
     <body>
-        <h2>Enter data below</h2>
+        <h2><u>Enter data below</u></h2>
         <form method = "post">
             <label>Student ID</label>
             <input type = "text" id = "sid" required> <br>
