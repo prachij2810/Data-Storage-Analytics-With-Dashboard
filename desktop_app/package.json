@@ -9,7 +9,15 @@
   "author": "Vaishali",
   "license": "ISC",
   "dependencies": {
-    "electron": "^8.0.3"
+    "all": "0.0.0",
+    "firebase": "^7.14.3",
+    "firebase-admin": "^8.12.0",
+    "main.js": "0.0.1",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "uniq": "^1.0.1",
+    "unique": "0.0.1",
+    "url": "^0.11.0"
   },
   "devDependencies": {},
   "repository": {

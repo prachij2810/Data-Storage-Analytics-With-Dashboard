@@ -4,107 +4,92 @@
         <title>
             School data entry
         </title>
-        <style>
-            body {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 600px;
-                padding: 40px;
-                box-sizing: border-box;
-                box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-                border-radius: 10px;
-                font-family: sans-serif;
-                color: black;
-            }
-
-            h2{
-                margin: 0 0 30px;
-                padding: 0;
-                color: black;
-                text-align: center;
-             }
-
-            input {
-                padding: 10px 0;
-                font-size: 16px;
-                color: black;
-                margin-bottom: 10px;
-                border: 1px solid;
-                border-radius: 2px;
-                outline: none;
-            } 
-
-            button[type="submit"] {
-                margin-top: 10px;
-                background: transparent;
-                border: none;
-                outline: none;
-                color: #fff;
-                background: #03a9f4;
-                padding: 10px 20px;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-
-
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h2><u>Enter data below</u></h2>
         <form method = "post">
+            <label>School Name</label>
+            <input type = "text" id = "sname" required><br>
             <label>Student ID</label>
             <input type = "text" id = "sid" required> <br>
             <label>Roll no</label>
             <input type = "text" id = "rno" required><br>
             <label>Name</label>
             <input type = "text" id = "name" required><br>
+            <label>Father's Name</label>
+            <input type = "text" id = "fname" required><br>
+            <label>Date of Birth</label>
+            <input type = "date" id="dob" required><br>
+            <label>Class</label>
+            <input type = "number" id="clas" required><br>
             <label>Attendance</label>
             <input type = "number" id="atten" required><br>
             <label>Percentage</label>
             <input type = "number" id = "perc" required><br>
-            <label>Gender</label><br>
+            <label>Gender</label> 
             <input type="radio" id="male" name="gender" value="male" id = "male">
-            <label for="male">Male</label><br>
+            <label for="male">Male</label> 
             <input type="radio" id="female" name="gender" id = "fmale" value="female">
             <label for="female">Female</label><br>
+            <label>District</label>
+            <input type = "text" id = "District" required><br>
             <button type = "submit" id = "btn">SUBMIT</input>
         </form>
+        <script src="/__/firebase/7.14.3/firebase-app.js"></script>
+        <script src="/__/firebase/7.14.3/firebase-analytics.js"></script>
+
+        <script src="/__/firebase/init.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
+        <script>
+            var admin = require('firebase-admin');
+            var firebase = require('firebase/app');
+            require('firebase/auth');
+            require('firebase/database');
+            var config = {
+                apiKey: "AIzaSyD4IrIu2i8sZgQBSu03SNctIgxaA2g7pog",
+                authDomain: "school-management-system-6ef39.firebaseapp.com",
+                databaseURL: "https://school-management-system-6ef39.firebaseio.com",
+                storageBucket: "school-management-system-6ef39.appspot.com"
+            };
+            firebase.initializeApp(config);
+        </script>
             <script >
                 const electron = require('electron');
-                const {ipcRenderer} = electron;  
+                const {ipcRenderer} = electron;
                 var btnclick = document.getElementById('btn');
                 if(btnclick)
-                btnclick.addEventListener('click', fnc);
+                    btnclick.addEventListener('click', fnc);
                 function fnc(e){
                     e.preventDefault();
-                    console.log(123);
-                    var mysql = require('mysql');
-                    var con = mysql.createConnection({
-                        host: "localhost",
-                        user: "root",
-                        password: "shinratensei",
-                        database: 'db'
-                    });
-                    var sid = document.getElementById('sid').value;
-                    var rno = document.getElementById('rno').value;
-                    var nam = document.getElementById('name').value;
-                    var atten = document.getElementById('atten').value;
-                    var perc = document.getElementById('perc').value;
+                    var snam = document.getElementById('sname');
+                    var sid = document.getElementById('sid');
+                    var rno = document.getElementById('rno');
+                    var nam = document.getElementById('name');
+                    var fnam = document.getElementById('fname');
+                    var dob = document.getElementById('dob');
+                    var clas= document.getElementById('clas');
+                    var atten = document.getElementById('atten');
+                    var perc = document.getElementById('perc');
                     var x = document.getElementById("male").checked;
                     if (x) male = 'male';
                     else male = 'female'
-                    con.connect(function(err) {
-                    if (err) throw err;
-                    console.log("Connected!");
-                    var sql = "INSERT INTO student VALUES(" +sid +"," +rno+",'"+nam+"',"+atten+","+perc+",'"+male+"')";
-                            con.query(sql, function (err, result) {
-                                if (err) throw err;
-                                console.log("1 record inserted");
-                            });
+                    var dis = document.getElementById('District');
+                    firebase.database().ref('/user/'+sid.value).set({
+                        school_name: snam.value,
+                        id: sid.value,
+                        roll_no: rno.value,
+                        name: nam.value,
+                        father_name: fname.value,
+                        dob: dob.value,
+                        class: clas.value,
+                        attendance: atten.value,
+                        percentage: perc.value,
+                        gender: male,
+                        district: dis.value
                     });
                 }
-            </script>   
+            </script>
     </body>
 </html>
