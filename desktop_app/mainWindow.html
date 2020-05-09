@@ -76,7 +76,7 @@
                     if (x) male = 'male';
                     else male = 'female'
                     var dis = document.getElementById('District');
-                    firebase.database().ref('/user/'+sid.value).set({
+                    firebase.database().ref('/district/user/'+dis.value+sid.value).set({
                         school_name: snam.value,
                         id: sid.value,
                         roll_no: rno.value,

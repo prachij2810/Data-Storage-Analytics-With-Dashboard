@@ -1,55 +1,49 @@
-    var mysql = require('mysql');
-    var http = require("http");
-    var app = require('./newapp');
-    var bodyParser = require('body-parser');
-    var express = require('express');
-    var app1 = express();
-    //var dom = require('express-dom');
-    app1.use(bodyParser.urlencoded({extended: true}))
-    app1.use(express.static('../Project_Node'))
-    app1.set('view engine','pug');
-    var connection = mysql.createConnection({
-        host     : 'localhost',
-        user     : 'root',
-        password : 'system',
-        database : 'student'
-    });
-    connection.connect(function(err) {
-        if (err) throw err
-        console.log('You are now connected...')
-    });
-    var server = http.createServer(app1);
-    server.listen(8080, "127.0.0.1", function () {
-        var host = '127.0.0.1';
-        var port = '8080';
-        console.log("Example app listening at http://%s:%s", host, port)
-      
-    });
-    app1.get("/", function(req, res) {
-        res.sendFile(__dirname + "/newfront.htm");
-        //res.render('index',{ title: 'Rohini '})  
-    });
-    // 
-    app1.get("/types", function (req, res) {
-        connection.query('select * from type', function (error, results, fields) {
-           if (error) throw error;
-           console.log(results);
-           res.end(JSON.stringify(results));
-           //res.render('index',{title:'Types Details',
-            // items:"oshdj"})
-        });
-    });
-    app1.post("/submit", function(req,res){
-        //var db = dom.getElementById('district');
-        console.log(req.body);
-        //res.end(JSON.stringify(req.body));
-        res.render('index',{title:'Data Saved',
-        message:'Data Saved Successfully.'})
-    });
-    /*app.get('/', function (req, res) {
-        connection.query('select * from type', function (error, results, fields) {
-           if (error) throw error;
-           res.end(JSON.stringify(results));
-         });
-    });*/
+btn = document.getElementById("btn");
+var dist1, dist;
+btn.addEventListener('click', (e)=>{
+    var x = document.getElementById("district").selectedIndex;
+dist = document.getElementsByTagName("option")[x].value;
+const btn = document.getElementById("btn");
+
+dist1 = dist;
+var c = dist1[dist1.length-1];
+function nextCharacter(c) { 
+    return String.fromCharCode(c.charCodeAt(0) + 1); 
+} 
+c = nextCharacter(c);
+function setCharAt(str,index,chr) {
+    if(index > str.length-1) return str;
+    return str.substr(0,index) + chr + str.substr(index+1);
+}
+var i = dist1.length-1;
+dist1 = setCharAt(dist1, i, c);
+    var ref = firebase.database().ref("district/user");
+    ref.orderByKey().startAt(dist).endAt(dist1).on("child_added", function(data, prevChildKey) {
+    var newPlayer = data.val();
+    var p = document.createElement("P");               // Create a <p> element
+    p.innerText = "Student details:";              // Insert text
+    document.body.appendChild(p); 
+    var nam = document.createElement("P");               // Create a <p> element
+    nam.innerText = "Name: " + newPlayer.name;              // Insert text
+    document.body.appendChild(nam); 
+    var fname = document.createElement("P");               // Create a <p> element
+    fname.innerText = "Father's name: " + newPlayer.father_name;             // Insert text
+    document.body.appendChild(fname); 
+    var dobb = document.createElement("P");               // Create a <p> element
+    dobb.innerText = "DOB: " + newPlayer.dob;             // Insert text
+    document.body.appendChild(dobb); 
+    var pid = document.createElement("P");               // Create a <p> element
+    pid.innerText = "ID: " + newPlayer.id;             // Insert text
+    document.body.appendChild(pid); 
+    var roll = document.createElement("P");               // Create a <p> element
+    roll.innerText = "Roll No: " + newPlayer.roll_no;             // Insert text
+    document.body.appendChild(roll); 
+    var schl = document.createElement("P");               // Create a <p> element
+    schl.innerText = "School: " + newPlayer.school;             // Insert text
+    document.body.appendChild(schl);
+    var dst = document.createElement("P");               // Create a <p> element
+    dst.innerText = "District " + newPlayer.district;             // Insert text
+    document.body.appendChild(dst);
+});
     
+});

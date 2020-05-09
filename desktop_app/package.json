@@ -19,7 +19,9 @@
     "unique": "0.0.1",
     "url": "^0.11.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "electron": "^8.2.5"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prachij2810/School_Management_System.git"

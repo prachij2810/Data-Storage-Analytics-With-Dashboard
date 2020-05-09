@@ -100,34 +100,45 @@
         District:
         <select id="district" name="d">
           <option value="Gaya" name="g">Gaya</option>
-          <option value="Bihar" name="g">Muzzaffarpur</option>
+          <option value="Muzaffarpur" name="g">Muzzaffarpur</option>
           <option value="Patna" name="g">Patna</option>
         </select>
-        <br /><br />
-        School Type: <br /><br />
-
+        <br id = "br"/><br />
         &nbsp; &nbsp; &nbsp;
-        <input
-          type="radio"
-          id="primary"
-          value="primary"
-          name="p"
-        />primary<br /><br />
-        &nbsp; &nbsp; &nbsp;
-        <input
-          type="radio"
-          id="secondary"
-          value="secondary"
-          name="p"
-        />secondary<br /><br />
-        &nbsp; &nbsp; &nbsp;
-        <input type="radio" id="high" value="high" name="p" />high &nbsp;
-        <br /><br /><br />
-        <input type="text" id="fname" name="fname" /><br />
-        <input type="submit" id="submit" value="submit" name="search" />
+        
         &nbsp;&nbsp;
       </div>
     </form>
-    <script src="/newserver.js"></script>
+    <div>
+    <button id = "btn">SUBMIT</button>
+    <p id = "list"></p>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD4IrIu2i8sZgQBSu03SNctIgxaA2g7pog",
+    authDomain: "school-management-system-6ef39.firebaseapp.com",
+    databaseURL: "https://school-management-system-6ef39.firebaseio.com",
+    projectId: "school-management-system-6ef39",
+    storageBucket: "school-management-system-6ef39.appspot.com",
+    messagingSenderId: "981017605809",
+    appId: "1:981017605809:web:db0a34ff7638ca09fc1490",
+    measurementId: "G-3Y5R6GDJEC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+    <script src="newserver.js"></script>
   </body>
 </html>
