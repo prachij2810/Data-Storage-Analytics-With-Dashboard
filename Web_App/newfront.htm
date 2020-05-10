@@ -28,6 +28,7 @@
         padding: 10px 20px;
         cursor: pointer;
         border-radius: 5px;
+        margin-left: 164px;
       }
 
       .div1 {
@@ -50,6 +51,10 @@
         box-sizing: border-box;
         border-radius: 5px;
       }
+      #dst{
+        margin-left: 160px;
+      }
+
 
       div {
         top: 0;
@@ -172,7 +177,22 @@
         color: red;
         cursor: pointer;
       }
-
+      #tbl{
+        margin-left:305px;
+        margin-top:300px;
+        border: 1px solid black;
+      }
+      tr:nth-child(even) {
+        background-color:silver;
+        }
+        th {
+          background-color:teal;
+          color:white;
+        }
+        th, td {
+          padding: 15px;
+          text-align: left;
+        }
       /* add zoom animation*/
       .animate {
         -webkit-animation: animatezoom 0.6s;
@@ -282,7 +302,7 @@
 
       <div id="logg"></div>
       <div class="div1">
-        District:
+        <span id= 'dst'>District:</span>
         <select id="district" name="d">
           <option value="Gaya" name="g">Gaya</option>
           <option value="Muzaffarpur" name="g">Muzzaffarpur</option>
@@ -294,6 +314,8 @@
       <p id="list"></p>
       </div>
     </form>
+    <table id="tbl">
+    </table>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
